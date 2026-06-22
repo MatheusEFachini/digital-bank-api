@@ -7,7 +7,6 @@ public enum TransferStatus {
 
     private String status;
 
-
     TransferStatus(String status) {
         this.status = status;
     }
