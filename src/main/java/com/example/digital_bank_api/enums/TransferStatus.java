@@ -1,4 +1,4 @@
-package enums;
+package com.example.digital_bank_api.enums;
 
 public enum TransferStatus {
     COMPLETE("C"),

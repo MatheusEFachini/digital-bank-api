@@ -1,6 +1,6 @@
-package entities;
+package com.example.digital_bank_api.entities;
 
-import enums.TransferStatus;
+import com.example.digital_bank_api.enums.TransferStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,6 +10,9 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "transfers")
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Transfer {
 
     @Id

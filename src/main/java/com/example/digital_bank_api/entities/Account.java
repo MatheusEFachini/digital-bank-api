@@ -1,4 +1,4 @@
-package entities;
+package com.example.digital_bank_api.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;

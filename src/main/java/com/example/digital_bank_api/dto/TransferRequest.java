@@ -1,16 +1,16 @@
-package dto;
+package com.example.digital_bank_api.dto;
 
-import jakarta.annotation.Nonnull;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
 
 public record TransferRequest(
-        @Nonnull
+        @NotNull
         Long sourceAccountId,
-        @Nonnull
+        @NotNull
         Long targetAccountId,
-        @Nonnull
+        @NotNull
         BigDecimal amount
 ) {
 }
