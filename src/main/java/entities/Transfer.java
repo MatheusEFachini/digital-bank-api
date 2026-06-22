@@ -27,4 +27,7 @@ public class Transfer {
 
     @Column(nullable = false)
     private TransferStatus status;
+
+    @Column(nullable = false)
+    private LocalDateTime createDt;
 }
