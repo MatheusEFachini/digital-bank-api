@@ -21,7 +21,6 @@ import java.util.List;
 public class TransferResource {
 
     private final TransferService transferService;
-    private final TransferRepository transferRepository;
 
     @Operation(summary = "Transfer money between accounts")
     @PostMapping

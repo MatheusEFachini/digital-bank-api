@@ -2,8 +2,8 @@ package com.example.digital_bank_api.enums;
 
 public enum TransferStatus {
     COMPLETE("C"),
-    PENDING("P"),
     FAILED("F");
+    // removed PENDING status, since we are not using too many requests
 
     private String status;
 

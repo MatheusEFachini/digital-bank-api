@@ -39,6 +39,8 @@ public class TransferService {
         }
 
         // updating value in the database first, then logging the transfer
+        // all in a transactional method, in case of failure... we get a full rollback
+        //TODO: add try-catch for failure logic, saving transaction with status FAILURE
         accountRepository.debitAccount(sourceAccount.getId(),request.amount());
         accountRepository.creditAccount(targetAccount.getId(),request.amount());
 
