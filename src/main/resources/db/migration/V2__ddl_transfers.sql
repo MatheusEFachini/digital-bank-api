@@ -12,5 +12,5 @@ CREATE TABLE transfers (
 
   CONSTRAINT fk_transfer_target_account
       FOREIGN KEY (target_account_id)
-          REFERENCES account(id),
+          REFERENCES account(id)
 );

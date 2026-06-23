@@ -11,5 +11,7 @@ spring:
   jpa:
     show-sql: true
 
+  flyway:
+    enabled: true
 server:
   port: 8080

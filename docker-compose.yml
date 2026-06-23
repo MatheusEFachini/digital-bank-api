@@ -3,6 +3,7 @@ services:
     image: postgres:16
     container_name: digital-bank
     environment:
+      # fullURL = jdbc:postgresql://localhost:5433/digital_bank
       POSTGRES_DB: digital_bank
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: 123
