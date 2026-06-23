@@ -1,8 +1,7 @@
 package com.example.digital_bank_api.resources;
 
-import com.example.digital_bank_api.dto.TransferRequest;
-import com.example.digital_bank_api.dto.TransferResponse;
-import com.example.digital_bank_api.repositories.TransferRepository;
+import com.example.digital_bank_api.dto.requests.TransferRequestDTO;
+import com.example.digital_bank_api.dto.responses.TransferResponseDTO;
 import com.example.digital_bank_api.service.TransferService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -25,13 +24,13 @@ public class TransferResource {
     @Operation(summary = "Transfer money between accounts")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TransferResponse transfer(@Valid @RequestBody TransferRequest request) {
+    public TransferResponseDTO transfer(@Valid @RequestBody TransferRequestDTO request) {
         return transferService.transfer(request);
     }
 
     @Operation(summary = "List transactions ordered by date")
     @GetMapping
-    public List<TransferResponse> findTransaction() {
+    public List<TransferResponseDTO> findTransaction() {
         return transferService.findAllOrderByDate();
     }
 }

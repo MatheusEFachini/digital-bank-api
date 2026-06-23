@@ -1,7 +1,7 @@
 package com.example.digital_bank_api.service;
 
-import com.example.digital_bank_api.dto.TransferRequest;
-import com.example.digital_bank_api.dto.TransferResponse;
+import com.example.digital_bank_api.dto.requests.TransferRequestDTO;
+import com.example.digital_bank_api.dto.responses.TransferResponseDTO;
 import com.example.digital_bank_api.entities.Account;
 import com.example.digital_bank_api.entities.Transfer;
 import com.example.digital_bank_api.enums.TransferStatus;
@@ -23,7 +23,7 @@ public class TransferService {
     TransferRepository transferRepository;
 
     @Transactional
-    public TransferResponse transfer(TransferRequest request) {
+    public TransferResponseDTO transfer(TransferRequestDTO request) {
         if (request.sourceAccountId().equals(request.targetAccountId())) {
             throw new IllegalArgumentException("You cannot transfer to same account.");
         }
@@ -48,7 +48,7 @@ public class TransferService {
 
         //TODO: send Notification to sourceAccount and targetAccount
 
-        return new TransferResponse(
+        return new TransferResponseDTO(
                 savedTransaction.getId(),
                 savedTransaction.getSourceAccountId(),
                 savedTransaction.getTargetAccountId(),
@@ -58,7 +58,7 @@ public class TransferService {
         );
     }
 
-    public List<TransferResponse> findAllOrderByDate() {
+    public List<TransferResponseDTO> findAllOrderByDate() {
         return transferRepository
                 .findAllOrderByCreateDtAsc()
                 .stream()
@@ -66,8 +66,8 @@ public class TransferService {
                 .toList();
     }
 
-    private TransferResponse toTransferResponse(Transfer transfer) {
-        return new TransferResponse(
+    private TransferResponseDTO toTransferResponse(Transfer transfer) {
+        return new TransferResponseDTO(
                 transfer.getId(),
                 transfer.getSourceAccountId(),
                 transfer.getTargetAccountId(),
@@ -77,7 +77,7 @@ public class TransferService {
         );
     }
 
-    private @NonNull Transfer createSavedTransaction(TransferRequest request, Account sourceAccount, Account targetAccount) {
+    private @NonNull Transfer createSavedTransaction(TransferRequestDTO request, Account sourceAccount, Account targetAccount) {
         Transfer transfer = Transfer.builder()
                 .sourceAccountId(sourceAccount.getId())
                 .targetAccountId(targetAccount.getId())

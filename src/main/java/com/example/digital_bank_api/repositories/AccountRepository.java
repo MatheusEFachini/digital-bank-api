@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
-
     Optional<Account> findAccountById(Long id);
 
     @Modifying
